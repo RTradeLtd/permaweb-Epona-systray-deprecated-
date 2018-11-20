@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F10F36F-B6BE-49C7-8541-B87713F3B6A1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IPFSSystemTray</RootNamespace>
+    <AssemblyName>Epona</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView">
+      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HashInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HashInputDialog.Designer.cs">
+      <DependentUpon>HashInputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IPFSElement.cs" />
+    <Compile Include="SystemTray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemTray.Designer.cs">
+      <DependentUpon>SystemTray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IPFSSystemTray.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Taskbar.cs" />
+    <EmbeddedResource Include="HashInputDialog.resx">
+      <DependentUpon>HashInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SystemTray.resx">
+      <DependentUpon>SystemTray.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractDragSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractDropSink.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractListFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractModelFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractOverlay.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractVirtualGroups.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AbstractVirtualListDataSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AfterSearchingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AfterSortingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AspectGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AspectPutterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AspectToStringConverterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.AutoCompleteCellEditor.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BarRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BaseRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BeforeSearchingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BeforeSortingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BillboardOverlay.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BooleanCellEditor.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BooleanCellEditor2.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BooleanCheckStateGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BooleanCheckStatePutterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.BorderDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CancellableEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellBorderDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellEditEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellEditEventHandler.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellEditKeyEngine.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellOverEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellRendererGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellRightClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CellToolTipGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CheckStateGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CheckStatePutterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CheckStateRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.Cluster.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ClusteringStrategy.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ClustersFromGroupsStrategy.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ColumnButtonRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ColumnComparer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ColumnRightClickEventHandler.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ColumnSelectionForm.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ComboBoxItem.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CompositeAllFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CompositeAnyFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CompositeFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.CreateGroupsEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.DataListView.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.DataSourceAdapter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.DataTreeListView.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.DateTimeClusteringStrategy.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.DescribedTaskRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.Design.ObjectListViewDesigner.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.Design.OLVColumnCollectionEditor.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.EditingCellBorderDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.EditorCreatorDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.EditorRegistry.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.EnumCellEditor.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FastDataListView.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FastListGroupingStrategy.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FastObjectListDataSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FastObjectListView.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FilterEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FilterMenuBuilder.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FlagBitSetFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FlagClusteringStrategy.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FlagRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FloatCellEditor.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FormatCellEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FormatRowEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.FreezeEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.Generator.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GraphicAdornment.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupExpandingCollapsingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupFormatterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupingParameters.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupKeyGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupKeyToTitleConverterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupStateChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.GroupTaskClickedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HeaderCheckBoxChangingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HeaderControl.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HeaderDrawingDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HeaderFormatStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HeaderStateStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HeaderToolTipGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HighlightTextRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HotItemChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HotItemStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HyperlinkClickedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HyperlinkEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.HyperlinkStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ICluster.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IClusteringStrategy.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IDragSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IDropSink.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IFilterableDataSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IFilterAwareRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IGenerator.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IItemStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IListFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ImageAdornment.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ImageDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ImageGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ImageOverlay.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ImageRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ImagesRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IModelFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IntUpDown.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IOverlay.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IsHyperlinkEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ItemsAddingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ItemsChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ItemsChangingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ItemsRemovingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ITransparentOverlay.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IVirtualGroups.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.IVirtualListDataSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.LightBoxDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ListFilter+ListFilterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ListFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.MappedImageRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ModelDropEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ModelFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ModelObjectComparer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.MultiImageRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.Munger.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.MungerException.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ObjectListView+CellEditActivateMode.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ObjectListView+ColumnSelectBehaviour.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ObjectListView.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVChildrenAttribute.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVColumn+ButtonSizingMode.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVColumn.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVColumnAttribute.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVDataObject.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OlvDropEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVExporter+ExportFormat.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVExporter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVGroup.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVGroupComparer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVIgnoreAttribute.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVListItem.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OLVListSubItem.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OlvListViewHitTestInfo.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.OneOfFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.RearrangingDropSink.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.RenderDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.RowBorderDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.RowFormatterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.RowGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SearchValueGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SimpleDragSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SimpleDropSink.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SimpleItemStyle.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SimpleMunger.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SortDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.StringCompareDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.SubItemCheckingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TailFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TextAdornment.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TextDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TextMatchFilter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TextOverlay.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TintedColumnDecoration.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ToolStripCheckedListBox.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ToolTipControl+StandardIcons.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ToolTipControl.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.ToolTipShowingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeBranchCollapsedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeBranchCollapsingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeBranchExpandedEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeBranchExpandingEventArgs.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeDataSourceAdapter.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+Branch+BranchFlags.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+Branch.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+BranchComparer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+CanExpandGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+ChildrenGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+ParentGetterDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+Tree.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+TreeFactoryDelegate.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView+TreeRenderer.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.TreeListView.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.VirtualListVersion1DataSource.datasource" />
+    <None Include="Properties\DataSources\BrightIdeasSoftware.VirtualObjectListView.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AppIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\Epona_small.png" />
+    <None Include="Resources\AppIcon.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Export.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\Pause.bmp" />
+    <None Include="Resources\Folder.png" />
+    <None Include="Resources\ToggleOn.png" />
+    <None Include="Resources\ToggleOff.png" />
+    <None Include="Resources\Open.png" />
+    <None Include="Resources\Remove.png" />
+    <None Include="Resources\Hyperlink.png" />
+    <None Include="Resources\File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
